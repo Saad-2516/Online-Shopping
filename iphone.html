@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buy iphone 16 pro max</title>
+    <style>
+        body { text-align:center; font-size:22px; }
+        input { width: 250px; padding:10px; margin:8px; }
+        button { padding:12px 20px; background:black; color:white; border:none; border-radius:10px; cursor:pointer; }
+        button:hover { background:green; }
+    </style>
+</head>
+<body>
+
+    <h1>iphone 16 pro max</h1>
+    <p>Price: $950</p>
+
+    <h2>Fill Your Details</h2>
+
+    <form id="orderForm">
+        <input type="text" name="name" placeholder="Enter Name" required><br>
+        <input type="text" name="address" placeholder="Enter Address" required><br>
+        <input type="text" name="phone" placeholder="Enter Phone Number" required><br>
+        <input type="text" name="place" placeholder="Enter Place" required><br>
+
+        <button type="submit">Place Order</button>
+    </form>
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbyyro8WjHT8clBC3nLNg9vU_egx4XDcQYFtyD9bnAbAWA0uJUW0OC-h_YXj_DfumE1Vcw/exec";
+
+        document.getElementById("orderForm").addEventListener("submit", e => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+
+            fetch(scriptURL, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(result => alert(result))
+            .catch(error => alert("Error: " + error));
+        });
+    </script>
+
+</body>
+</html>
+
